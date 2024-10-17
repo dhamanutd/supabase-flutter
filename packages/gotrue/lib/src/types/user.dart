@@ -186,6 +186,7 @@ class UserIdentity {
   final Map<String, dynamic>? identityData;
   final String identityId;
   final String provider;
+  final String providerId;
   final String? createdAt;
   final String? lastSignInAt;
   final String? updatedAt;
@@ -196,6 +197,7 @@ class UserIdentity {
     required this.identityData,
     required this.identityId,
     required this.provider,
+    required this.providerId,
     required this.createdAt,
     required this.lastSignInAt,
     this.updatedAt,
@@ -207,6 +209,7 @@ class UserIdentity {
     Map<String, dynamic>? identityData,
     String? identityId,
     String? provider,
+    String? providerId,
     String? createdAt,
     String? lastSignInAt,
     String? updatedAt,
@@ -217,6 +220,7 @@ class UserIdentity {
       identityData: identityData ?? this.identityData,
       identityId: identityId ?? this.identityId,
       provider: provider ?? this.provider,
+      providerId: providerId ?? this.providerId,
       createdAt: createdAt ?? this.createdAt,
       lastSignInAt: lastSignInAt ?? this.lastSignInAt,
       updatedAt: updatedAt ?? this.updatedAt,
@@ -230,6 +234,7 @@ class UserIdentity {
       identityData: (map['identity_data'] as Map?)?.cast<String, dynamic>(),
       identityId: (map['identity_id'] ?? '') as String,
       provider: map['provider'] as String,
+      providerId: map['provider_id'] as String,
       createdAt: map['created_at'] as String?,
       lastSignInAt: map['last_sign_in_at'] as String?,
       updatedAt: map['updated_at'] as String?,
@@ -243,6 +248,7 @@ class UserIdentity {
       'identity_data': identityData,
       'identity_id': identityId,
       'provider': provider,
+      'provider_id': providerId,
       'created_at': createdAt,
       'last_sign_in_at': lastSignInAt,
       'updated_at': updatedAt,
@@ -251,7 +257,7 @@ class UserIdentity {
 
   @override
   String toString() {
-    return 'UserIdentity(id: $id, userId: $userId, identityData: $identityData, identityId: $identityId, provider: $provider, createdAt: $createdAt, lastSignInAt: $lastSignInAt, updatedAt: $updatedAt)';
+    return 'UserIdentity(id: $id, userId: $userId, identityData: $identityData, identityId: $identityId, provider: $provider, providerId: $providerId, createdAt: $createdAt, lastSignInAt: $lastSignInAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -265,6 +271,7 @@ class UserIdentity {
         mapEquals(other.identityData, identityData) &&
         other.identityId == identityId &&
         other.provider == provider &&
+        other.providerId == providerId &&
         other.createdAt == createdAt &&
         other.lastSignInAt == lastSignInAt &&
         other.updatedAt == updatedAt;
@@ -277,6 +284,7 @@ class UserIdentity {
         identityData.hashCode ^
         identityId.hashCode ^
         provider.hashCode ^
+        providerId.hashCode ^
         createdAt.hashCode ^
         lastSignInAt.hashCode ^
         updatedAt.hashCode;
