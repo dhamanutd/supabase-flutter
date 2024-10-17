@@ -234,7 +234,7 @@ class UserIdentity {
       identityData: (map['identity_data'] as Map?)?.cast<String, dynamic>(),
       identityId: (map['identity_id'] ?? '') as String,
       provider: map['provider'] as String,
-      providerId: map['provider_id'] as String,
+      providerId: (map['provider_id'] ?? '') as String,
       createdAt: map['created_at'] as String?,
       lastSignInAt: map['last_sign_in_at'] as String?,
       updatedAt: map['updated_at'] as String?,
